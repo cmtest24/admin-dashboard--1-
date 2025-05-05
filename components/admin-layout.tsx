@@ -25,6 +25,8 @@ import {
   X,
   ChevronDown,
   ChevronUp,
+  Phone,
+  MapPin 
 } from "lucide-react"
 import { isAuthenticated, logout } from "@/lib/auth"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
@@ -191,6 +193,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             icon={<ImageIcon className="h-5 w-5" />}
             title="Banner"
             isActive={pathname.includes("/admin/banner")}
+            onClick={closeSheet}
+          />
+            <NavItem
+            href="/admin/contact"
+            icon={<Phone  className="h-5 w-5" />}
+            title="Liên Hệ "
+            isActive={pathname.includes("/admin/contact")}
+            onClick={closeSheet}
+          />
+            <NavItem
+            href="/admin/addresses"
+            icon={<MapPin   className="h-5 w-5" />}
+            title="Địa Chỉ "
+            isActive={pathname.includes("/admin/addresses")}
             onClick={closeSheet}
           />
         </NavGroup>
