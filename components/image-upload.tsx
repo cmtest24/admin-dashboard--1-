@@ -4,6 +4,13 @@ import type React from "react"
 
 import { useState } from "react"
 import Image from "next/image"
+// Chuẩn hóa đường dẫn ảnh
+function getFullImageUrl(url: string | undefined): string {
+  if (!url) return "/placeholder.svg";
+  if (url.startsWith("http")) return url;
+  if (url.startsWith("/public/")) return `${process.env.NEXT_PUBLIC_API_BASE_URL}${url}`;
+  return url;
+}
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -127,7 +134,7 @@ export function ImageUpload({ value, onChange, label = "Hình ảnh", disabled =
             {/* Ensure value is treated as string[] when multiple is true */}
             {Array.isArray(value) && value.map((url, index) => url && (
               <div key={index} className="relative h-24 w-full overflow-hidden rounded-md border"> {/* Smaller preview */}
-                <Image src={url || "/placeholder.svg"} alt={`Uploaded image ${index + 1}`} fill className="object-cover" />
+                <Image src={getFullImageUrl(url)} alt={`Uploaded image ${index + 1}`} fill className="object-cover" />
                 {!disabled && (
                   <Button
                     type="button"
@@ -147,7 +154,7 @@ export function ImageUpload({ value, onChange, label = "Hình ảnh", disabled =
           // Ensure value is treated as string when multiple is false
           typeof value === 'string' && value && (
             <div className="relative h-40 w-40 overflow-hidden rounded-md border">
-              <Image src={value || "/placeholder.svg"} alt="Uploaded image" fill className="object-cover" />
+              <Image src={getFullImageUrl(value)} alt="Uploaded image" fill className="object-cover" />
               {!disabled && (
                 <Button
                   type="button"
