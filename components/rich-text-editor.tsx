@@ -14,7 +14,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ initialValue, onEditorC
 
   return (
     <Editor
-      apiKey="v67x7bx8syrctltdlk4y60s70lvt2r5azbcva4o6pbkctziy" // Thay thế bằng API key của bạn
+      apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
       onInit={(evt, editor) => editorRef.current = editor}
       initialValue={initialValue}
       onEditorChange={onEditorChange}

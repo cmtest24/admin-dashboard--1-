@@ -202,11 +202,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             isActive={pathname.includes("/admin/contact")}
             onClick={closeSheet}
           />
-            <NavItem
-            href="/admin/addresses"
-            icon={<MapPin   className="h-5 w-5" />}
-            title="Địa Chỉ "
-            isActive={pathname.includes("/admin/addresses")}
+           <NavItem
+            href="/admin/order"
+            icon={<ShoppingBag  className="h-5 w-5" />}
+            title="Đơn Hàng "
+            isActive={pathname.includes("/admin/order")}
             onClick={closeSheet}
           />
         </NavGroup>

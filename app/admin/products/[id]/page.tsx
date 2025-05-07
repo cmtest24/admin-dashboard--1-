@@ -278,7 +278,7 @@ export default function ProductEditPage() {
                     id="price"
                     name="price"
                     type="text" // Change type to text
-                    value={formData.price.toString()} // Convert number to string for text input
+                    value={Number.isInteger(formData.price) ? formData.price.toFixed(0) : formData.price.toString()} // Display as integer string if no decimal, otherwise as string
                     onChange={handleNumberChange} // Use the updated handler
                     required
                   />
@@ -290,7 +290,7 @@ export default function ProductEditPage() {
                     id="salePrice"
                     name="salePrice"
                     type="text" // Change type to text
-                    value={formData.salePrice.toString()} // Convert number to string for text input
+                    value={Number.isInteger(formData.salePrice) ? formData.salePrice.toFixed(0) : formData.salePrice.toString()} // Display as integer string if no decimal, otherwise as string
                     onChange={handleNumberChange} // Use the updated handler
                   />
                 </div>

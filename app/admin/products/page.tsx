@@ -144,6 +144,11 @@ export default function ProductsPage() {
       cell: ({ row }) => formatPrice(row.original.price),
     },
     {
+      accessorKey: "salePrice",
+      header: "Giá khuyến mãi",
+      cell: ({ row }) => formatPrice(row.original.salePrice),
+    },
+    {
       id: "actions",
       cell: ({ row }) => {
         const product = row.original
